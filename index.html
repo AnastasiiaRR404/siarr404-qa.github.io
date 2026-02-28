@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anastasia Palagina | QA Engineer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    background: #f5f6f8;
+    color: #1a1a1a;
+}
+
+.sidebar {
+    width: 320px;
+    background: #111;
+    color: white;
+    padding: 50px 35px;
+    min-height: 100vh;
+}
+
+.sidebar h2 {
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.sidebar .role {
+    opacity: 0.7;
+    margin-bottom: 30px;
+}
+
+.sidebar .contact {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: 40px;
+}
+
+.nav a {
+    display:block;
+    margin-bottom:15px;
+    text-decoration:none;
+    color:white;
+    opacity:0.7;
+    transition:0.3s;
+}
+
+.nav a:hover { opacity:1; }
+
+.content {
+    flex:1;
+    padding:80px;
+    max-width:900px;
+}
+
+h1 {
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.subtitle {
+    font-size:20px;
+    color:#666;
+    margin-bottom:40px;
+}
+
+.section { margin-bottom:60px; }
+
+.section h3 {
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.section p {
+    line-height:1.7;
+    margin-bottom:15px;
+    color:#333;
+}
+
+.job {
+    margin-bottom:30px;
+}
+
+.job h4 {
+    font-size:18px;
+    margin-bottom:5px;
+}
+
+.job span {
+    font-size:14px;
+    color:#777;
+}
+
+ul {
+    margin-top:10px;
+    padding-left:20px;
+}
+
+li {
+    margin-bottom:8px;
+    line-height:1.6;
+}
+
+.skills {
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.skill {
+    background:#e8e8e8;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+.socials {
+    margin-top:40px;
+    display:flex;
+    gap:15px;
+}
+
+.socials a {
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:25px;
+    background:black;
+    color:white;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.socials a:hover { opacity:0.8; }
+
+@media(max-width:900px){
+    body{flex-direction:column;}
+    .sidebar{width:100%; min-height:auto;}
+    .content{padding:40px 20px;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h2>Anastasia Palagina</h2>
+    <div class="role">QA Engineer</div>
+
+    <div class="contact">
+        📞 +7 (981) 797-33-39<br>
+        ✉ nastya.palagi@gmail.com<br>
+        Telegram: @siarr404
+    </div>
+
+    <div class="nav">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+    </div>
+</div>
+
+<div class="content">
+
+<h1>QA Engineer</h1>
+<div class="subtitle">
+7+ years in fintech, telecom and international mobile/web products
+</div>
+
+<div class="section" id="about">
+<h3>About Me</h3>
+<p>
+QA Engineer specializing in REST/GraphQL API testing and business logic validation.
+Experienced in production incident investigation and microservices architecture.
+Develop API automation tests in Python (pytest + requests).
+</p>
+</div>
+
+<div class="section" id="experience">
+<h3>Professional Experience</h3>
+
+<div class="job">
+<h4>Humans App — QA Engineer</h4>
+<span>June 2024 – Present | Telecom Super App (2.3M+ active users)</span>
+<ul>
+<li>Functional, regression and integration testing of iOS/Android applications in microservices architecture</li>
+<li>REST/GraphQL API testing, fintech scenarios validation (payments, transfers, cashback)</li>
+<li>Production incident analysis using OpenSearch, Firebase Crashlytics, Jaeger</li>
+<li>Integration testing of third-party marketplace (SDK & external services)</li>
+<li>Test documentation, sprint planning and effort estimation</li>
+</ul>
+</div>
+
+<div class="job">
+<h4>Pure App — QA Engineer</h4>
+<span>Oct 2022 – Apr 2024 | International Dating App</span>
+<ul>
+<li>Subscription and in-app purchase testing (App Store, Google Play, Huawei, RuStore)</li>
+<li>Web payment integration testing</li>
+<li>Analytics validation (Amplitude, AppsFlyer, AppMetrica)</li>
+<li>Production log analysis and incident investigation</li>
+<li>API testing and admin panel validation (Django)</li>
+</ul>
+</div>
+
+<div class="job">
+<h4>Octopod Professional Services — QA Engineer</h4>
+<span>Mar 2018 – Oct 2022 | Fintech & B2B/B2C e-commerce</span>
+<ul>
+<li>Cross-platform mobile & web testing</li>
+<li>Regression and functional testing</li>
+<li>Test case creation and maintenance</li>
+<li>Database validation (PostgreSQL)</li>
+<li>Release verification and build testing</li>
+</ul>
+</div>
+
+</div>
+
+<div class="section" id="skills">
+<h3>Core Skills</h3>
+<div class="skills">
+<div class="skill">Manual Testing</div>
+<div class="skill">API Testing</div>
+<div class="skill">REST / GraphQL</div>
+<div class="skill">Python (pytest)</div>
+<div class="skill">PostgreSQL</div>
+<div class="skill">Microservices</div>
+<div class="skill">Mobile Testing</div>
+<div class="skill">Charles Proxy</div>
+<div class="skill">Postman</div>
+<div class="skill">OpenSearch</div>
+<div class="skill">Firebase</div>
+</div>
+</div>
+
+<div class="section" id="education">
+<h3>Education & Certifications</h3>
+<p>QA Automation in Python — Yandex Practicum (2024–2025)</p>
+<p>Software Testing Course — UP Level IT (2018)</p>
+<p>Higher Education in PR & Communications</p>
+<p>English — B1</p>
+</div>
+
+<div class="socials">
+<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
+<a href="https://github.com/" target="_blank">GitHub</a>
+<a href="https://t.me/siarr404" target="_blank">Telegram</a>
+</div>
+
+</div>
+
+</body>
+</html>
