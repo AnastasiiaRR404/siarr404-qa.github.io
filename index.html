@@ -15,134 +15,228 @@ body {
     display: flex;
     background: #f5f6f8;
     color: #1a1a1a;
+    min-height: 100vh;
 }
 
+/* ── Sidebar ── */
 .sidebar {
-    width: 320px;
+    width: 280px;
+    flex-shrink: 0;
     background: #111;
     color: white;
-    padding: 50px 35px;
+    padding: 48px 32px;
     min-height: 100vh;
 }
 
 .sidebar h2 {
     font-weight: 700;
-    font-size: 22px;
-    margin-bottom: 5px;
+    font-size: 20px;
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
 }
 
 .sidebar .role {
-    opacity: 0.7;
-    margin-bottom: 30px;
+    font-size: 13px;
+    opacity: 0.55;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 .sidebar .contact {
-    font-size: 14px;
-    line-height: 1.6;
-    opacity: 0.8;
+    font-size: 13px;
+    line-height: 2;
+    opacity: 0.75;
     margin-bottom: 40px;
 }
 
+.sidebar .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 28px;
+}
+
 .nav a {
-    display:block;
-    margin-bottom:15px;
-    text-decoration:none;
-    color:white;
-    opacity:0.7;
-    transition:0.3s;
+    display: block;
+    margin-bottom: 14px;
+    text-decoration: none;
+    color: white;
+    opacity: 0.55;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: opacity 0.2s;
 }
 
-.nav a:hover { opacity:1; }
+.nav a:hover { opacity: 1; }
 
+/* ── Main content ── */
 .content {
-    flex:1;
-    padding:80px;
-    max-width:900px;
+    flex: 1;
+    padding: 56px 72px;
+    max-width: 860px;
 }
 
-h1 {
-    font-size:48px;
-    margin-bottom:10px;
+.page-header {
+    margin-bottom: 52px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #e4e4e4;
+}
+
+.page-header h1 {
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+    line-height: 1.1;
 }
 
 .subtitle {
-    font-size:20px;
-    color:#666;
-    margin-bottom:40px;
+    font-size: 16px;
+    color: #777;
+    font-weight: 400;
 }
 
-.section { margin-bottom:60px; }
+/* ── Sections ── */
+.section {
+    margin-bottom: 52px;
+}
 
-.section h3 {
-    font-size:22px;
-    margin-bottom:20px;
+.section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #999;
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e8e8e8;
 }
 
 .section p {
-    line-height:1.7;
-    margin-bottom:15px;
-    color:#333;
+    font-size: 15px;
+    line-height: 1.75;
+    color: #444;
 }
 
+/* ── Jobs ── */
 .job {
-    margin-bottom:30px;
+    margin-bottom: 36px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #efefef;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
 }
 
 .job h4 {
-    font-size:18px;
-    margin-bottom:5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111;
 }
 
-.job span {
-    font-size:14px;
-    color:#777;
+.job-period {
+    font-size: 13px;
+    color: #999;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
-ul {
-    margin-top:10px;
-    padding-left:20px;
+.job-meta {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 12px;
 }
 
-li {
-    margin-bottom:8px;
-    line-height:1.6;
+.job ul {
+    padding-left: 18px;
 }
 
+.job li {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+.job li:last-child { margin-bottom: 0; }
+
+/* ── Skills ── */
 .skills {
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .skill {
-    background:#e8e8e8;
-    padding:8px 14px;
-    border-radius:20px;
-    font-size:14px;
+    background: #efefef;
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
 }
 
+/* ── Education ── */
+.edu-item {
+    margin-bottom: 16px;
+}
+
+.edu-item:last-child { margin-bottom: 0; }
+
+.edu-item p {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 2px;
+}
+
+.edu-item span {
+    font-size: 13px;
+    color: #999;
+}
+
+/* ── Socials ── */
 .socials {
-    margin-top:40px;
-    display:flex;
-    gap:15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .socials a {
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:25px;
-    background:black;
-    color:white;
-    font-size:14px;
-    transition:0.3s;
+    text-decoration: none;
+    padding: 9px 20px;
+    border-radius: 25px;
+    background: #111;
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+    transition: opacity 0.2s;
 }
 
-.socials a:hover { opacity:0.8; }
+.socials a:hover { opacity: 0.75; }
 
-@media(max-width:900px){
-    body{flex-direction:column;}
-    .sidebar{width:100%; min-height:auto;}
-    .content{padding:40px 20px;}
+/* ── Responsive ── */
+@media(max-width: 860px){
+    body { flex-direction: column; }
+    .sidebar { width: 100%; min-height: auto; }
+    .content { padding: 40px 24px; }
+    .job-header { flex-direction: column; gap: 4px; }
 }
 </style>
 </head>
@@ -156,104 +250,124 @@ li {
     <div class="contact">
         📞 +7 (981) 797-33-39<br>
         ✉ nastya.palagi@gmail.com<br>
-        Telegram: @siarr404
+        💬 @siarr404
     </div>
 
-    <div class="nav">
+    <nav class="nav">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
-    </div>
+    </nav>
 </div>
 
 <div class="content">
 
-<h1>QA Engineer</h1>
-<div class="subtitle">
-7+ years in fintech, telecom and international mobile/web products
-</div>
+    <div class="page-header">
+        <h1>QA Engineer</h1>
+        <div class="subtitle">7+ years in fintech, telecom and international mobile/web products</div>
+    </div>
 
-<div class="section" id="about">
-<h3>About Me</h3>
-<p>
-QA Engineer specializing in REST/GraphQL API testing and business logic validation.
-Experienced in production incident investigation and microservices architecture.
-Develop API automation tests in Python (pytest + requests).
-</p>
-</div>
+    <div class="section" id="about">
+        <div class="section-title">About Me</div>
+        <p>
+            QA Engineer specializing in REST/GraphQL API testing and business logic validation.
+            Experienced in production incident investigation and microservices architecture.
+            Develop API automation tests in Python (pytest + requests).
+        </p>
+    </div>
 
-<div class="section" id="experience">
-<h3>Professional Experience</h3>
+    <div class="section" id="experience">
+        <div class="section-title">Professional Experience</div>
 
-<div class="job">
-<h4>Humans App — QA Engineer</h4>
-<span>June 2024 – Present | Telecom Super App (2.3M+ active users)</span>
-<ul>
-<li>Functional, regression and integration testing of iOS/Android applications in microservices architecture</li>
-<li>REST/GraphQL API testing, fintech scenarios validation (payments, transfers, cashback)</li>
-<li>Production incident analysis using OpenSearch, Firebase Crashlytics, Jaeger</li>
-<li>Integration testing of third-party marketplace (SDK & external services)</li>
-<li>Test documentation, sprint planning and effort estimation</li>
-</ul>
-</div>
+        <div class="job">
+            <div class="job-header">
+                <h4>Humans App — QA Engineer</h4>
+                <span class="job-period">June 2024 – Present</span>
+            </div>
+            <div class="job-meta">Telecom Super App · 2.3M+ active users</div>
+            <ul>
+                <li>Functional, regression and integration testing of iOS/Android applications in microservices architecture</li>
+                <li>REST/GraphQL API testing, fintech scenarios validation (payments, transfers, cashback)</li>
+                <li>Production incident analysis using OpenSearch, Firebase Crashlytics, Jaeger</li>
+                <li>Integration testing of third-party marketplace (SDK & external services)</li>
+                <li>Test documentation, sprint planning and effort estimation</li>
+            </ul>
+        </div>
 
-<div class="job">
-<h4>Pure App — QA Engineer</h4>
-<span>Oct 2022 – Apr 2024 | International Dating App</span>
-<ul>
-<li>Subscription and in-app purchase testing (App Store, Google Play, Huawei, RuStore)</li>
-<li>Web payment integration testing</li>
-<li>Analytics validation (Amplitude, AppsFlyer, AppMetrica)</li>
-<li>Production log analysis and incident investigation</li>
-<li>API testing and admin panel validation (Django)</li>
-</ul>
-</div>
+        <div class="job">
+            <div class="job-header">
+                <h4>Pure App — QA Engineer</h4>
+                <span class="job-period">Oct 2022 – Apr 2024</span>
+            </div>
+            <div class="job-meta">International Dating App</div>
+            <ul>
+                <li>Subscription and in-app purchase testing (App Store, Google Play, Huawei, RuStore)</li>
+                <li>Web payment integration testing</li>
+                <li>Analytics validation (Amplitude, AppsFlyer, AppMetrica)</li>
+                <li>Production log analysis and incident investigation</li>
+                <li>API testing and admin panel validation (Django)</li>
+            </ul>
+        </div>
 
-<div class="job">
-<h4>Octopod Professional Services — QA Engineer</h4>
-<span>Mar 2018 – Oct 2022 | Fintech & B2B/B2C e-commerce</span>
-<ul>
-<li>Cross-platform mobile & web testing</li>
-<li>Regression and functional testing</li>
-<li>Test case creation and maintenance</li>
-<li>Database validation (PostgreSQL)</li>
-<li>Release verification and build testing</li>
-</ul>
-</div>
+        <div class="job">
+            <div class="job-header">
+                <h4>Octopod Professional Services — QA Engineer</h4>
+                <span class="job-period">Mar 2018 – Oct 2022</span>
+            </div>
+            <div class="job-meta">Fintech & B2B/B2C e-commerce</div>
+            <ul>
+                <li>Cross-platform mobile & web testing (iOS / Android / Web)</li>
+                <li>Regression and functional testing</li>
+                <li>Test case creation and maintenance</li>
+                <li>Database validation (PostgreSQL)</li>
+                <li>Release verification and build testing</li>
+            </ul>
+        </div>
 
-</div>
+    </div>
 
-<div class="section" id="skills">
-<h3>Core Skills</h3>
-<div class="skills">
-<div class="skill">Manual Testing</div>
-<div class="skill">API Testing</div>
-<div class="skill">REST / GraphQL</div>
-<div class="skill">Python (pytest)</div>
-<div class="skill">PostgreSQL</div>
-<div class="skill">Microservices</div>
-<div class="skill">Mobile Testing</div>
-<div class="skill">Charles Proxy</div>
-<div class="skill">Postman</div>
-<div class="skill">OpenSearch</div>
-<div class="skill">Firebase</div>
-</div>
-</div>
+    <div class="section" id="skills">
+        <div class="section-title">Core Skills</div>
+        <div class="skills">
+            <div class="skill">Manual Testing</div>
+            <div class="skill">API Testing</div>
+            <div class="skill">REST / GraphQL</div>
+            <div class="skill">Python (pytest)</div>
+            <div class="skill">PostgreSQL</div>
+            <div class="skill">Microservices</div>
+            <div class="skill">Mobile Testing</div>
+            <div class="skill">Charles Proxy</div>
+            <div class="skill">Postman</div>
+            <div class="skill">OpenSearch</div>
+            <div class="skill">Firebase</div>
+        </div>
+    </div>
 
-<div class="section" id="education">
-<h3>Education & Certifications</h3>
-<p>QA Automation in Python — Yandex Practicum (2024–2025)</p>
-<p>Software Testing Course — UP Level IT (2018)</p>
-<p>Higher Education in PR & Communications</p>
-<p>English — B1</p>
-</div>
+    <div class="section" id="education">
+        <div class="section-title">Education & Certifications</div>
+        <div class="edu-item">
+            <p>QA Automation in Python — Yandex Practicum</p>
+            <span>2024 – 2025</span>
+        </div>
+        <div class="edu-item">
+            <p>Software Testing Course — UP Level IT</p>
+            <span>2018</span>
+        </div>
+        <div class="edu-item">
+            <p>Higher Education in PR & Communications</p>
+            <span>2016 – 2020</span>
+        </div>
+        <div class="edu-item">
+            <p>English — B1</p>
+        </div>
+    </div>
 
-<div class="socials">
-<a href="https://linkedin.com/" target="_blank">LinkedIn</a>
-<a href="https://github.com/" target="_blank">GitHub</a>
-<a href="https://t.me/siarr404" target="_blank">Telegram</a>
-</div>
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/anastasiia-p-86a1b3b3/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://t.me/siarr404" target="_blank">Telegram</a>
+    </div>
 
 </div>
 
