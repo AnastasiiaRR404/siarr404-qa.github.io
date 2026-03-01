@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anastasia Palagina | QA Engineer</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -16,6 +14,38 @@ body {
     background: #f5f6f8;
     color: #1a1a1a;
     min-height: 100vh;
+}
+
+/* ── Lang toggle ── */
+.lang-toggle {
+    position: fixed;
+    top: 20px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    overflow: hidden;
+}
+
+.lang-toggle button {
+    border: none;
+    background: transparent;
+    padding: 8px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    color: #999;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.lang-toggle button.active {
+    background: #111;
+    color: #fff;
+    border-radius: 30px;
 }
 
 /* ── Sidebar ── */
@@ -36,23 +66,58 @@ body {
 }
 
 .sidebar .role {
-    font-size: 13px;
+    font-size: 12px;
     opacity: 0.55;
     margin-bottom: 32px;
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    line-height: 1.4;
 }
 
 .sidebar .contact {
     font-size: 13px;
-    line-height: 2;
+    line-height: 1;
     opacity: 0.75;
     margin-bottom: 40px;
 }
 
-.sidebar .contact a {
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.contact-item:last-child { margin-bottom: 0; }
+
+.contact-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon svg {
+    width: 14px;
+    height: 14px;
+    fill: white;
+    opacity: 0.85;
+}
+
+.contact-text {
+    font-size: 13px;
+    opacity: 0.8;
+    line-height: 1.3;
+}
+
+.contact-text a {
     color: white;
     text-decoration: none;
+    opacity: 1;
 }
 
 .nav {
@@ -70,6 +135,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.8px;
     transition: opacity 0.2s;
+    cursor: pointer;
 }
 
 .nav a:hover { opacity: 1; }
@@ -117,7 +183,7 @@ body {
     border-bottom: 1px solid #e8e8e8;
 }
 
-.section p {
+.section > p {
     font-size: 15px;
     line-height: 1.75;
     color: #444;
@@ -141,7 +207,7 @@ body {
     justify-content: space-between;
     align-items: baseline;
     gap: 16px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
     flex-wrap: wrap;
 }
 
@@ -161,11 +227,20 @@ body {
 .job-meta {
     font-size: 13px;
     color: #777;
+    margin-bottom: 4px;
+}
+
+.job-desc {
+    font-size: 13px;
+    color: #888;
     margin-bottom: 12px;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .job ul {
     padding-left: 18px;
+    margin-bottom: 12px;
 }
 
 .job li {
@@ -176,6 +251,45 @@ body {
 }
 
 .job li:last-child { margin-bottom: 0; }
+
+.tools-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #bbb;
+    margin-top: 14px;
+    margin-bottom: 8px;
+}
+
+.tools-list {
+    font-size: 12.5px;
+    color: #888;
+    line-height: 1.7;
+}
+
+.projects-block {
+    margin-top: 12px;
+    padding: 12px 14px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 3px solid #ddd;
+}
+
+.projects-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #bbb;
+    margin-bottom: 6px;
+}
+
+.projects-block p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
 
 /* ── Skills ── */
 .skills {
@@ -237,139 +351,268 @@ body {
     .sidebar { width: 100%; min-height: auto; }
     .content { padding: 40px 24px; }
     .job-header { flex-direction: column; gap: 4px; }
+    .lang-toggle { top: 12px; right: 12px; }
 }
 </style>
 </head>
 
 <body>
 
+<div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+    <button id="btn-ru" onclick="setLang('ru')">RU</button>
+</div>
+
 <div class="sidebar">
     <h2>Anastasia Palagina</h2>
-    <div class="role">QA Engineer</div>
+    <div class="role" data-en="QA Engineer (Web/Mobile)" data-ru="QA-инженер (Web/Mobile)">QA Engineer (Web/Mobile)</div>
 
-    <div class="contact">
-        📞 +7 (981) 797-33-39<br>
-        ✉ nastya.palagi@gmail.com<br>
-        💬 @siarr404
+    <div class="contact" style="margin-bottom:40px;">
+        <div class="contact-item">
+            <div class="contact-icon">
+                <!-- Phone -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+            </div>
+            <div class="contact-text">+7 (981) 797-33-39</div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">
+                <!-- Mail -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div class="contact-text"><a href="/cdn-cgi/l/email-protection#8ee0effdfaf7efa0feefe2efe9e7cee9e3efe7e2a0ede1e3"><span class="__cf_email__" data-cfemail="d5bbb4a6a1acb4fba5b4b9b4b2bc95b2b8b4bcb9fbb6bab8">[email&#160;protected]</span></a></div>
+        </div>
+
+        <div class="contact-item">
+            <div class="contact-icon">
+                <!-- Telegram -->
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.88 13.376l-2.967-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.835.944-.001 0-.001.001 0 0z"/></svg>
+            </div>
+            <div class="contact-text"><a href="https://t.me/siarr404" target="_blank">@siarr404</a></div>
+        </div>
     </div>
 
     <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
+        <a href="#about"      data-en="About"       data-ru="О себе">About</a>
+        <a href="#experience" data-en="Experience"  data-ru="Опыт работы">Experience</a>
+        <a href="#skills"     data-en="Skills"      data-ru="Навыки">Skills</a>
+        <a href="#education"  data-en="Education"   data-ru="Образование">Education</a>
     </nav>
 </div>
 
 <div class="content">
 
     <div class="page-header">
-        <h1>QA Engineer</h1>
-        <div class="subtitle">7+ years in fintech, telecom and international mobile/web products</div>
+        <h1 data-en="QA Engineer (Web/Mobile)" data-ru="QA-инженер (Web/Mobile)">QA Engineer (Web/Mobile)</h1>
+
     </div>
 
+    <!-- ABOUT -->
     <div class="section" id="about">
-        <div class="section-title">About Me</div>
-        <p>
-            QA Engineer specializing in REST/GraphQL API testing and business logic validation.
-            Experienced in production incident investigation and microservices architecture.
-            Develop API automation tests in Python (pytest + requests).
+        <div class="section-title" data-en="About Me" data-ru="О себе">About Me</div>
+        <p data-en="QA Engineer with 8 years of experience in fintech, telecom, and international mobile/web products. I specialize in testing REST/GraphQL APIs and verifying service business logic. I have experience analyzing production incidents and working with microservice/monolithic architecture. I write API automated tests in Python (pytest + requests)."
+           data-ru="QA-инженер с 8-летним опытом в fintech, telecom и международных mobile/web-продуктах. Специализируюсь на тестировании REST/GraphQL API и проверке бизнес-логики сервисов. Имею опыт анализа production-инцидентов и работы с микросервисной/монолитной архитектурой. Пишу API-автотесты на Python (pytest + requests).">
+            QA Engineer with 8 years of experience in fintech, telecom, and international mobile/web products. I specialize in testing REST/GraphQL APIs and verifying service business logic. I have experience analyzing production incidents and working with microservice/monolithic architecture. I write API automated tests in Python (pytest + requests).
         </p>
     </div>
 
+    <!-- EXPERIENCE -->
     <div class="section" id="experience">
-        <div class="section-title">Professional Experience</div>
+        <div class="section-title" data-en="Professional Experience" data-ru="Опыт работы">Professional Experience</div>
 
+        <!-- Humans -->
         <div class="job">
             <div class="job-header">
-                <h4>Humans App — QA Engineer</h4>
-                <span class="job-period">June 2024 – Present</span>
+                <h4 data-en="HUMANS.uz — QA Engineer" data-ru="HUMANS.uz — QA-инженер">HUMANS.uz — QA Engineer</h4>
+                <span class="job-period" data-en="June 2024 – Jan 2025" data-ru="Июнь 2024 – Янв 2025">June 2024 – Jan 2025</span>
             </div>
-            <div class="job-meta">Telecom Super App · 2.3M+ active users</div>
+            <div class="job-meta" data-en="Remote · Product company" data-ru="Удалённо · Продуктовая компания">Remote · Product company</div>
+            <div class="job-desc" data-en="High-load telecom super app · 2.3M+ active users · FinTech services: payments, transfers, cashback, marketplace via external integration"
+                                  data-ru="Высоконагруженный телеком super app · 2.3M+ активных пользователей · FinTech-сервисы: платежи, переводы, кэшбэк, маркетплейс через внешнюю интеграцию">
+                High-load telecom super app · 2.3M+ active users · FinTech services: payments, transfers, cashback, marketplace via external integration
+            </div>
             <ul>
-                <li>Functional, regression and integration testing of iOS/Android applications in microservices architecture</li>
-                <li>REST/GraphQL API testing, fintech scenarios validation (payments, transfers, cashback)</li>
-                <li>Production incident analysis using OpenSearch, Firebase Crashlytics, Jaeger</li>
-                <li>Integration testing of third-party marketplace (SDK & external services)</li>
-                <li>Test documentation, sprint planning and effort estimation</li>
+                <li data-en="Functional, regression, and integration testing of mobile applications (iOS/Android) in microservice architecture"
+                    data-ru="Функциональное, регрессионное и интеграционное тестирование мобильных приложений (iOS/Android) в микросервисной архитектуре">
+                    Functional, regression, and integration testing of mobile applications (iOS/Android) in microservice architecture</li>
+                <li data-en="Requirements analysis and test documentation development (test cases, checklists, Confluence)"
+                    data-ru="Анализ требований и разработка тестовой документации (тест-кейсы, чек-листы, Confluence)">
+                    Requirements analysis and test documentation development (test cases, checklists, Confluence)</li>
+                <li data-en="Testing effort estimation and participation in sprint planning"
+                    data-ru="Оценка трудоёмкости тестирования и участие в планировании спринтов">
+                    Testing effort estimation and participation in sprint planning</li>
+                <li data-en="Analysis of incidents in production and dev environments (OpenSearch, Firebase Crashlytics, Jaeger)"
+                    data-ru="Анализ инцидентов в production и dev-среде (OpenSearch, Firebase Crashlytics, Jaeger)">
+                    Analysis of incidents in production and dev environments (OpenSearch, Firebase Crashlytics, Jaeger)</li>
+                <li data-en="Testing REST/GraphQL API, validation of fintech scenarios (payments, transfers, cashback)"
+                    data-ru="Тестирование REST/GraphQL API, валидация финтех-сценариев (платежи, переводы, кэшбэк)">
+                    Testing REST/GraphQL API, validation of fintech scenarios (payments, transfers, cashback)</li>
+                <li data-en="Testing third-party marketplace integration (SDK, external service)"
+                    data-ru="Тестирование интеграции стороннего маркетплейса (SDK, внешний сервис)">
+                    Testing third-party marketplace integration (SDK, external service)</li>
+                <li data-en="Support and development of internal QA-Tool (Python), extension of functionality via API"
+                    data-ru="Поддержка и развитие внутреннего QA-инструмента (Python), расширение функциональности через API">
+                    Support and development of internal QA-Tool (Python), extension of functionality via API</li>
             </ul>
+            <div class="tools-label" data-en="Tools & Technologies" data-ru="Инструменты и технологии">Tools & Technologies</div>
+            <div class="tools-list">Postman (REST/GraphQL) · Charles Proxy · Android Studio · Proxyman · Xcode · Firebase · OpenSearch · Jira · Confluence · Amplitude · Figma · TestRail · AppMetrica · Singular Analytics · Jaeger · Swagger · PyCharm</div>
         </div>
 
+        <!-- Pure App -->
         <div class="job">
             <div class="job-header">
-                <h4>Pure App — QA Engineer</h4>
-                <span class="job-period">Oct 2022 – Apr 2024</span>
+                <h4 data-en="Pure App — QA Engineer" data-ru="Pure App — QA-инженер">Pure App — QA Engineer</h4>
+                <span class="job-period" data-en="Oct 2022 – Apr 2024" data-ru="Окт 2022 – Апр 2024">Oct 2022 – Apr 2024</span>
             </div>
-            <div class="job-meta">International Dating App</div>
+            <div class="job-meta" data-en="Remote · Product company" data-ru="Удалённо · Продуктовая компания">Remote · Product company</div>
+            <div class="job-desc" data-en="International dating app with an active global user base and millions of matches worldwide"
+                                  data-ru="Международное dating-приложение с активной глобальной аудиторией и миллионами матчей по всему миру">
+                International dating app with an active global user base and millions of matches worldwide
+            </div>
             <ul>
-                <li>Subscription and in-app purchase testing (App Store, Google Play, Huawei, RuStore)</li>
-                <li>Web payment integration testing</li>
-                <li>Analytics validation (Amplitude, AppsFlyer, AppMetrica)</li>
-                <li>Production log analysis and incident investigation</li>
-                <li>API testing and admin panel validation (Django)</li>
+                <li data-en="Functional and regression testing"
+                    data-ru="Функциональное и регрессионное тестирование">
+                    Functional and regression testing</li>
+                <li data-en="Testing subscriptions and one-time purchases: App Store, Google Play, RuStore, Huawei AppGallery (Sandbox)"
+                    data-ru="Тестирование подписок и разовых покупок: App Store, Google Play, RuStore, Huawei AppGallery (Sandbox)">
+                    Testing subscriptions and one-time purchases: App Store, Google Play, RuStore, Huawei AppGallery (Sandbox)</li>
+                <li data-en="Web payment service integration testing"
+                    data-ru="Тестирование интеграции платёжного сервиса на web">
+                    Web payment service integration testing</li>
+                <li data-en="Writing test cases and checklists (TestRail)"
+                    data-ru="Написание тест-кейсов и чек-листов (TestRail)">
+                    Writing test cases and checklists (TestRail)</li>
+                <li data-en="Analytics verification: Amplitude, AppsFlyer, AppMetrica"
+                    data-ru="Проверка аналитики: Amplitude, AppsFlyer, AppMetrica">
+                    Analytics verification: Amplitude, AppsFlyer, AppMetrica</li>
+                <li data-en="Analytics testing via ClickHouse"
+                    data-ru="Тестирование аналитики через ClickHouse">
+                    Analytics testing via ClickHouse</li>
+                <li data-en="Working with Django admin panel; content management via Strapi"
+                    data-ru="Работа с административной панелью Django; управление контентом через Strapi">
+                    Working with Django admin panel; content management via Strapi</li>
+                <li data-en="Production log analysis and incident investigation (Firebase Crashlytics, Sentry)"
+                    data-ru="Анализ логов и расследование инцидентов в production (Firebase Crashlytics, Sentry)">
+                    Production log analysis and incident investigation (Firebase Crashlytics, Sentry)</li>
             </ul>
+            <div class="tools-label" data-en="Tools & Technologies" data-ru="Инструменты и технологии">Tools & Technologies</div>
+            <div class="tools-list">Charles Proxy · Xcode · Android Studio · Postman · PostgreSQL · ClickHouse · Jira · Confluence · Figma · Amplitude · Browserstack · Mailjet · Django Admin · Strapi · OneSignal · Firebase · TestFlight · Logcat · ADB · Firebase Crashlytics · Sentry · REST · WebSockets</div>
         </div>
 
+        <!-- Octopod -->
         <div class="job">
             <div class="job-header">
-                <h4>Octopod Professional Services — QA Engineer</h4>
-                <span class="job-period">Mar 2018 – Oct 2022</span>
+                <h4 data-en="Octopod Professional Services — QA Engineer" data-ru="Октопод Профессиональные Сервисы — QA-инженер">Octopod Professional Services — QA Engineer</h4>
+                <span class="job-period" data-en="Mar 2018 – Oct 2022" data-ru="Март 2018 – Окт 2022">Mar 2018 – Oct 2022</span>
             </div>
-            <div class="job-meta">Fintech & B2B/B2C e-commerce</div>
+            <div class="job-meta" data-en="Saint-Petersburg, Russia · Outsourcing company" data-ru="Санкт-Петербург, Россия · Аутсорсинговая компания">Saint-Petersburg, Russia · Outsourcing company</div>
+            <div class="job-desc" data-en="Fintech & B2B/B2C e-commerce projects"
+                                  data-ru="Fintech и B2B/B2C e-commerce проекты">
+                Fintech & B2B/B2C e-commerce projects
+            </div>
             <ul>
-                <li>Cross-platform mobile & web testing (iOS / Android / Web)</li>
-                <li>Regression and functional testing</li>
-                <li>Test case creation and maintenance</li>
-                <li>Database validation (PostgreSQL)</li>
-                <li>Release verification and build testing</li>
+                <li data-en="Cross-platform mobile & web testing (iOS / Android / Web)"
+                    data-ru="Кроссплатформенное тестирование мобильных приложений и веба (iOS / Android / Web)">
+                    Cross-platform mobile & web testing (iOS / Android / Web)</li>
+                <li data-en="Functional and regression testing"
+                    data-ru="Функциональное и регрессионное тестирование">
+                    Functional and regression testing</li>
+                <li data-en="Test case and checklist creation and maintenance (Taiga IO / JIRA)"
+                    data-ru="Составление и обновление тест-кейсов и чек-листов (Taiga IO / JIRA)">
+                    Test case and checklist creation and maintenance (Taiga IO / JIRA)</li>
+                <li data-en="Database validation (PostgreSQL)"
+                    data-ru="Валидация базы данных (PostgreSQL)">
+                    Database validation (PostgreSQL)</li>
+                <li data-en="Build tracking and release verification via GitLab"
+                    data-ru="Отслеживание сборок и верификация релизов через GitLab">
+                    Build tracking and release verification via GitLab</li>
             </ul>
+
+            <div class="projects-block">
+                <div class="projects-label" data-en="Projects" data-ru="Проекты">Projects</div>
+                <p style="margin-bottom:8px;">
+                    <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:#bbb;" data-en="2020 – 2022" data-ru="2020 – 2022">2020 – 2022</span><br>
+                    <span data-en="Otkritie Investments — Mobile App (iOS/Android)" data-ru="Открытие Инвестиции — мобильное приложение (iOS/Android)">Otkritie Investments — Mobile App (iOS/Android)</span>
+                </p>
+                <p>
+                    <span style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:#bbb;" data-en="2018 – 2020" data-ru="2018 – 2020">2018 – 2020</span><br>
+                    <span data-en="Sberbank AST — Marketplace B2B e-commerce · RN Bank — Car loans · VTB 24 Bank" data-ru="Сбербанк АСТ — маркетплейс B2B e-commerce · РН Банк — автокредиты · ВТБ 24">Sberbank AST — Marketplace B2B e-commerce · RN Bank — Car loans · VTB 24 Bank</span>
+                </p>
+            </div>
+
+            <div class="tools-label" data-en="Tools & Technologies" data-ru="Инструменты и технологии">Tools & Technologies</div>
+            <div class="tools-list">Charles Proxy · DevTools · Android Studio · Xcode · Postman · PostgreSQL · DBeaver · Jira · Confluence · Zeplin · REST · Selenium IDE</div>
         </div>
 
     </div>
 
+    <!-- SKILLS -->
     <div class="section" id="skills">
-        <div class="section-title">Core Skills</div>
-        <div class="skills">
-            <div class="skill">Manual Testing</div>
-            <div class="skill">API Testing</div>
-            <div class="skill">REST / GraphQL</div>
-            <div class="skill">Python (pytest)</div>
-            <div class="skill">PostgreSQL</div>
-            <div class="skill">Microservices</div>
-            <div class="skill">Mobile Testing</div>
-            <div class="skill">Charles Proxy</div>
-            <div class="skill">Postman</div>
-            <div class="skill">OpenSearch</div>
-            <div class="skill">Firebase</div>
+        <div class="section-title" data-en="Core Skills" data-ru="Ключевые навыки">Core Skills</div>
+
+        <div style="display:flex; flex-direction:column; gap:20px;">
+
+            <div>
+                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#999;margin-bottom:10px;" data-en="Testing Types" data-ru="Виды тестирования">Testing Types</div>
+                <div class="skills">
+                    <div class="skill" data-en="Functional Testing" data-ru="Функциональное тестирование">Functional Testing</div>
+                    <div class="skill" data-en="Regression Testing" data-ru="Регрессионное тестирование">Regression Testing</div>
+                    <div class="skill" data-en="Integration Testing" data-ru="Интеграционное тестирование">Integration Testing</div>
+                    <div class="skill" data-en="Smoke Testing" data-ru="Смоук-тестирование">Smoke Testing</div>
+                    <div class="skill" data-en="Exploratory Testing" data-ru="Исследовательское тестирование">Exploratory Testing</div>
+                    <div class="skill" data-en="Mobile Testing (iOS/Android)" data-ru="Мобильное тестирование (iOS/Android)">Mobile Testing (iOS/Android)</div>
+                    <div class="skill" data-en="API Testing (REST/GraphQL)" data-ru="Тестирование API (REST/GraphQL)">API Testing (REST/GraphQL)</div>
+                    <div class="skill" data-en="In-App Purchases & Subscriptions" data-ru="Тестирование подписок и покупок в сторах">In-App Purchases & Subscriptions</div>
+                    <div class="skill" data-en="UX/UI Testing" data-ru="UX/UI тестирование">UX/UI Testing</div>
+                    <div class="skill" data-en="Usability Testing" data-ru="Тестирование юзабилити">Usability Testing</div>
+                </div>
+            </div>
+
+            <div>
+                <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.2px;color:#999;margin-bottom:10px;" data-en="Approach & Methodology" data-ru="Подход и методология">Approach & Methodology</div>
+                <div class="skills">
+                    <div class="skill" data-en="Shift Left Testing" data-ru="Shift Left тестирование">Shift Left Testing</div>
+                    <div class="skill" data-en="Test Design" data-ru="Тест-дизайн">Test Design</div>
+                    <div class="skill" data-en="Effort Estimation" data-ru="Оценка трудоёмкости">Effort Estimation</div>
+                    <div class="skill" data-en="Requirements Analysis" data-ru="Анализ требований">Requirements Analysis</div>
+                    <div class="skill">Scrum · Scrumban</div>
+                    <div class="skill" data-en="Writing Test Documentation" data-ru="Написание тестовой документации">Writing Test Documentation</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
+    <!-- EDUCATION -->
     <div class="section" id="education">
-        <div class="section-title">Education & Certifications</div>
+        <div class="section-title" data-en="Education & Certifications" data-ru="Образование и сертификаты">Education & Certifications</div>
         <div class="edu-item">
-            <p>QA Automation in Python — Yandex Practicum</p>
+            <p data-en="QA Automation in Python — Yandex Practicum" data-ru="Автоматизатор тестирования на Python — Яндекс Практикум">QA Automation in Python — Yandex Practicum</p>
             <span>2024 – 2025</span>
         </div>
         <div class="edu-item">
-            <p>Software Testing Course — UP Level IT</p>
+            <p data-en="Software Testing Course — UP Level IT (in-person, 3 months)" data-ru="Курс «Тестировщик ПО» — Центр IT-образования UP Level (очно, 3 месяца)">Software Testing Course — UP Level IT (in-person, 3 months)</p>
             <span>2018</span>
         </div>
         <div class="edu-item">
-            <p>Higher Education in PR & Communications</p>
+            <p data-en="Higher Education in PR & Communications" data-ru="Высшее образование в области PR и связей с общественностью">Higher Education in PR & Communications</p>
             <span>2016 – 2020</span>
         </div>
         <div class="edu-item">
-            <p>English — B1</p>
+            <p data-en="English — B1" data-ru="Английский язык — B1">English — B1</p>
         </div>
     </div>
 
     <div class="socials">
         <a href="https://www.linkedin.com/in/anastasiia-p-86a1b3b3/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/" target="_blank">GitHub</a>
+        <a href="https://github.com/AnastasiiaRR404" target="_blank">GitHub</a>
         <a href="https://t.me/siarr404" target="_blank">Telegram</a>
     </div>
 
 </div>
 
-</body>
-</html>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function setLang(lang) {
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.getAttribute('data-'
